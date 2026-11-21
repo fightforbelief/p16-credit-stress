@@ -1,0 +1,10 @@
+{
+  "2020": {
+    "archive_sha256": "bfa62a383612b4b1ecbfa2cfdb2ebb22fea2c9e4d1c494c07f314640e41386e9",
+    "projected_sha256": "19d087028b897824e74b11e475f35aa633294b2d4085f735a0244db432c0a247"
+  },
+  "2025": {
+    "archive_sha256": "e0b252c48e570564748bd72891040c6ec5c67ebc157fd63cdacd854565862260",
+    "projected_sha256": "0abd68c3dd80e6ec95b44e54e12dfaff6e80aafb671b3f03b1bc9ad9b4adf106"
+  }
+}

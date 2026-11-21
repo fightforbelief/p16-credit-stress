@@ -1,0 +1,26 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sha256": {
+    "analysis.py": "d343eccd252c5e3100c49b00a5286fc5bb0083a7fbe17067851d643e8941c4f3",
+    "build.py": "0db884fb87c42dace1537179dffbd1b71e1e8e54607c8d4d1d9b05e2fb2d415d",
+    "results/sources.json": "ffb14042bc018d29130b9dac03569abba6842eab424a2c8e069233701820ef6e",
+    "results/triangles.csv": "aab26b227bed412a2ae2dc206862895c6a1c47a01753eb8ac15d01ff41ec4b3b",
+    "review/archive_pairs.csv": "829c6bd2fadbe937051bd19773f115ce0bc4a266011cf46dffa84cda311d6496",
+    "review_prepare.py": "7e2a4ed2a8c71e0a4f41983ed3fbea77858169ef6300d3f71c4b191dce18f49b",
+    "revision/attribution.csv": "11fb201b898502c09e0a61025fd7ce2f4d7867b0370dc9e4df10cdea7a8be003",
+    "revision/event_quarters.csv": "c12df669d02312c8e6b07a2224174f19b0950484cd47b8b0d6b5ba51d9239222",
+    "revision/influence.csv": "7f44aaeddf96677869e83720dd05cfeda46bcb827e10de17c4093fbbc470561e",
+    "revision/ledger.csv": "816d5ce5963bb0cb2c447e446e7b89922f36e1d82b16ea953e1e2c130530c043",
+    "revision/link_tiers.csv": "bcd0c9be337ae5b5d189c18b43ea4caf4c35c528be31e0264f87b3a941d40b31",
+    "revision/linkage.json": "cedcb15c81a2c52579175912b91c39463874a2c16bec6d1be5e537f1f7242a04",
+    "revision/literal_attribution.csv": "9c150d9f79f0e4d653e447aa8ed2a10030f51ee0fb2ec8d134dc55f638647cf8",
+    "revision/literal_ledger.csv": "b1bf8d65152e7ca3bcbef76f1468156ded56737b8dd77818adf995bb0fd4b34e",
+    "revision/projection.json": "4e7aaf4a99d61bd885a9ee8069552e1a8ab1d26060058af0f07f53aa97dcf6a7",
+    "revision/roles.csv": "0043afa34b8ab2d2d6358492503e845195a5be42d98451aea6372fa8b037dcf1",
+    "revision/targets.csv": "400ad086c3a11e278fec40189339ad1d5fcf1d3ede862a11108d41ddfe64c47d",
+    "revision/transitions.csv": "86a2c7635a53141ee11ccd9daebc83393f5e5853120390dc7c1335a59d03e91e",
+    "revision_influence.py": "39506d3010f0486afc2cdebe02ddded78bdad3bfada73a59bb174935b77653f8",
+    "revision_records.py": "ab63b7f18d88f0f28ceb4d1efc57d40f398f299ad637fdf0dffc67234a7af97a"
+  }
+}

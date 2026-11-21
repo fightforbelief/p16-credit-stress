@@ -95,5 +95,33 @@ def make():
     axs[0].legend(ncol=4,fontsize=8,frameon=False,loc="upper right")
     fig.savefig(PAPER/"vintages.pdf",metadata={"CreationDate":None,"ModDate":None})
 
+def revision_figure():
+    import matplotlib.pyplot as plt
+
+    with (PAPER.parent/"revision/targets.csv").open(newline="") as f:
+        targets = list(csv.DictReader(f))
+    archive = [float(r["archive_gap_pp"]) for r in targets]
+    replay = [float(r["replay_gap_pp"]) for r in targets]
+    positions = range(len(targets))
+    fig, ax = plt.subplots(figsize=(6.3, 2.45), layout="constrained")
+    ax.axhline(0, color="#606060", lw=0.8)
+    ax.vlines(positions, archive, replay, color="#929292", linewidth=1.5)
+    ax.scatter(positions, archive, facecolors="white", edgecolors="#204766", s=37,
+               label="September 2020 archive", zorder=3)
+    ax.scatter(positions, replay, c="#a14f28", marker="D", s=13,
+               label="September 2025 replay", zorder=4)
+    labels = [r["vintage"][-2:] + ("\n"+r["vintage"][:4] if r["vintage"].endswith("Q1") else "")
+              for r in targets]
+    ax.set_xticks(positions, labels, fontsize=8)
+    ax.set_yticks([-1, -0.5, 0, 0.5, 1])
+    ax.set_ylabel("Absolute error gap (pp)", fontsize=9)
+    ax.set_xlabel("First-disbursement quarter", fontsize=9)
+    ax.spines[["right","top"]].set_visible(False)
+    ax.legend(loc="upper left", frameon=False, fontsize=8)
+    fig.savefig(PAPER/"revision_gaps.pdf", metadata={"CreationDate": None, "ModDate": None})
+    plt.close(fig)
+
+
 if __name__=="__main__":
     make()
+    revision_figure()

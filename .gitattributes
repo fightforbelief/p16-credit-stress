@@ -8,3 +8,5 @@ sensitivity/*.json -text whitespace=trailing-space,cr-at-eol
 *.pdf binary
 review/*.csv -text
 review/*.json -text
+revision/*.csv -text
+revision/*.json -text
