@@ -1,0 +1,7 @@
+program,episode,quarters,eligible,covered
+7a,2001,4,0,0
+7a,GFC,18,17,0
+7a,COVID,13,13,7
+504,2001,4,0,0
+504,GFC,18,17,7
+504,COVID,13,13,10

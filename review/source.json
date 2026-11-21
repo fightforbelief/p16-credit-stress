@@ -1,0 +1,15 @@
+{
+  "sources": {
+    "7a": {
+      "url": "https://raw.githubusercontent.com/cmcau/makeover_monday_archive/011e5e1e7d19bc8be7eed43c90403dd87c75f8f0/output/2023/w06/data/foia-7afy2010-fy2019-asof-220930.csv.tar.gz",
+      "sha256": "c41701ee7f3a4b583cf065579d70bcafae4f736502b99e7078ea080a92fc7429",
+      "rows": 545751
+    },
+    "504": {
+      "url": "https://raw.githubusercontent.com/cmcau/makeover_monday_archive/011e5e1e7d19bc8be7eed43c90403dd87c75f8f0/output/2023/w06/data/foia-504-fy2010-present-asof-220930.csv",
+      "sha256": "2811ab47598cd2784bfda296153f6d6d7c36dac578a32650a060d9e1c003b9b6",
+      "rows": 94673
+    }
+  },
+  "extract_sha256": "c03dc167c54deee8a5b8af1842d4de488a681bd9bd38b5495cbc5e5eae340f8d"
+}

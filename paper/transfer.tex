@@ -1,0 +1,27 @@
+\section{Matched weights and a later disbursement panel}
+
+The primary comparison gives equal weight to donor vintages for increments and pools loan counts for the development factors. We repeat both rules with a common weighting convention throughout. For donor cohort $u$ let $w_u$ sum to one within each age-specific pool, using equal weights or weights proportional to the number of funded loans. Write $d_j=\sum_u w_u x_{uj}$ and $b_j=\sum_u w_u F_u(j-1)$. An additive forecast transfers $d_j$ at each remaining age. A multiplicative forecast uses $1+d_j/b_j$. We hold the weighting convention fixed when moving both quantities to recent donors. Every reported comparison uses the same target quarters for the two windows and the two families.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Recent minus mature MAE (pp) with matched donor weights at age eight. Positive values favor mature donors. The exclusion row retains quarters for which the full donor and target span avoids the financial crisis. Later quarters are disjoint from the original disbursement panel.}
+\label{tab:transfer}
+\begin{tabular}{llr rrrr}
+\toprule
+ & & & \multicolumn{2}{c}{Equal vintage weights} & \multicolumn{2}{c}{Loan weights} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Program & Panel & $n$ & Add & Multiply & Add & Multiply \\
+\midrule\tableinput matched.tex
+\bottomrule
+\end{tabular}
+\end{table}
+
+In the full original panel the sign difference across forecast families survives both weighting conventions (Table~\ref{tab:transfer}). Its economic magnitude is sensitive to the years included. At the fixed landmark the earliest donor event that can enter a development factor is in quarter $v-19$ and the last scored event is in $v+19$. Excluding portfolios for which any quarter of that span intersects 2007Q4--2009Q2 leaves 23 quarters in each program. The 7(a) additive advantage of 1.28 pp becomes a disadvantage of 0.04 pp. In 504, the additive advantage shrinks from 0.75 to 0.14 pp. This exclusion also removes the surrounding years and cannot identify a causal recession effect.
+
+Using the September 2025 edition, we score all fifteen subsequent quarterly vintages with complete common coverage (2016Q1--2019Q3), comprising 195,691 \sba{} and 12,477 504 records. We apply the same date mask and age-eight landmark, without tuning a window on these portfolios. With equal donor weights, recent increments improve MAE by 0.15 pp for \sba{} and give up 0.01 pp in 504. Recent development factors increase error in both programs. The 504 file alone supports five further vintages, 2019Q4--2020Q4. There the recent additive window gains 0.26 pp while the two multiplicative forecasts tie on average. We keep these five outside the common comparison.
+
+\paragraph{What changes in a development factor?}
+Let $L_{ij}$ denote MAE after choosing the source of increments $i$ and of the cumulative base $j$ separately, each mature ($M$) or recent ($R$). The forecasts retain the original prefix and cap. Following the order-averaged decomposition in Shorrocks \cite{shorrocks}, the increment contribution is $[(L_{RM}-L_{MM})+(L_{RR}-L_{MR})]/2$. Subtracting this from $L_{RR}-L_{MM}$ gives the base contribution. In the original \sba{} panel, with loan weights, the net 0.28 pp increase comprises $+3.22$ pp from updating increments and $-2.94$ pp from updating the cumulative base. In 504 the corresponding terms are $+3.69$ and $-1.46$ pp. The latter portfolio's subsequent common panel gives $-0.02$ and $+0.37$ pp. The hybrid substitutions describe the mechanics of the recorded loss difference. The offset in the historical aggregates does not fix its sign or size elsewhere.
+
+\paragraph{Other US recession windows.}
+We use the calendar quarters containing the NBER monthly peak and trough. As before, a target qualifies if any of its twelve remaining quarters overlaps the episode. To preserve the original error history, calibration uses mature errors from the original replay through the 2015Q4 disbursement vintage, then from the later replay. These are retrospective, date-masked errors. Four scored portfolios per program overlap the 2001 downturn but none has twenty mature historical errors, so upper-forecast coverage is unobservable there. For the 2020 downturn (2020Q1--Q2), the historical period upper forecast covers seven of thirteen eligible \sba{} outcomes and ten of thirteen 504 outcomes. In 2007--09 it covered zero and seven of seventeen, respectively. SBA payment relief for eligible outstanding loans during the pandemic changed the setting \cite{relief}. Each count describes one sequence of overlapping portfolios within one macroeconomic episode.

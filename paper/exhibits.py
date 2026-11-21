@@ -45,14 +45,29 @@ def make():
             upper.append([name,s,str(len(rs)),f"{nonex}/{len(rs)}",f"{100*width:.2f}",
                           f"{100*gap:.2f}",f"{x2}/{len(rs)}",f"{inside}/{len(rs)}"])
     tex_file("upper.tex",upper)
-    pairs=[r for r in read("release_pairs.csv") if r["group"]=="all"]
+    review = PAPER.parent / "review"
+    with (review/"contrasts.csv").open(newline="") as f:
+        contrast={(r["program"],r["panel"],r["weights"]):r for r in csv.DictReader(f)}
+    matched=[]
+    for program, display in PROGRAMS.items():
+        for panel, name in [("original","1999--2015"),("original_clean","Exclusion"),("later","2016--19")]:
+            pair=[contrast[program,panel,w] for w in ("vintage","loan")]
+            vals=[float(r[k]) for r in pair for k in ("additive_delta","multiplicative_delta")]
+            matched.append([display,name,pair[0]["matched"]]+[f"{v:+.2f}" for v in vals])
+    tex_file("matched.tex",matched)
+    with (review/"archive_contrasts.csv").open(newline="") as f:
+        gaps={(r["origin"],r["program"],r["family"]):r for r in csv.DictReader(f) if r["ages"]=="available"}
+    with (review/"archive_pairs.csv").open(newline="") as f:
+        portfolios=list(csv.DictReader(f))
     external=[]
-    for yr,p in [("2020","7a"),("2020","504"),("2022","7a")]:
-        rs=[r for r in pairs if r["origin"]==yr and r["program"]==p]
-        vals=[100*mean(abs(num(r,k)-num(r,"truth")) for r in rs) for k in ("mature","period","chain")]
-        vals.extend([100*max(abs(num(r,"prefix_revision")) for r in rs),
-                     100*max(abs(num(r,"reconstructed_period")-num(r,"period")) for r in rs)])
-        external.append([yr,PROGRAMS[p],str(len(rs))]+[f"{v:.3f}" for v in vals])
+    for origin in ("2020Q3","2022Q3","2022Q4"):
+        for program,display in PROGRAMS.items():
+            if (origin,program,"add") not in gaps:
+                continue
+            rows=[r for r in portfolios if r["origin"]==origin and r["program"]==program and r["family"]=="add"]
+            ages=[int(r["age"]) for r in rows]
+            vals=[float(gaps[origin,program,fam][k]) for fam in ("add","mult") for k in ("archived_delta","revised_delta")]
+            external.append([origin,display,f"{min(ages)}--{max(ages)}",str(len(ages))]+[f"{v:+.3f}" for v in vals])
     tex_file("external.tex",external)
 
     import matplotlib

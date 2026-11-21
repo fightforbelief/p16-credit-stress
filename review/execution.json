@@ -1,0 +1,18 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sha256": {
+    "analysis.py": "d343eccd252c5e3100c49b00a5286fc5bb0083a7fbe17067851d643e8941c4f3",
+    "build.py": "0db884fb87c42dace1537179dffbd1b71e1e8e54607c8d4d1d9b05e2fb2d415d",
+    "results/triangles.csv": "aab26b227bed412a2ae2dc206862895c6a1c47a01753eb8ac15d01ff41ec4b3b",
+    "review/archive_contrasts.csv": "8ed5da4333f7d14dbd6859adc83c6f2435b310adc027a82b742c69fdf9547987",
+    "review/archive_pairs.csv": "829c6bd2fadbe937051bd19773f115ce0bc4a266011cf46dffa84cda311d6496",
+    "review/contrasts.csv": "e9f0fc5e551ffcd9e53585cbf35b00a1d28f1a22313eada4f13fea3cb803811e",
+    "review/episodes.csv": "e285d2eb3c5bc9da153e7e869f621dff1c7a71e4f23342d8099c02a4ca770951",
+    "review/quarters.csv": "fae12cee6c97cacee4e577fb59c0462b03224b634a1c06b781f43cf8b9404ada",
+    "review/september_counts.csv": "603054aa6aab1d2206b167dfb2beb7a24c1fccb67d0acaa77078c19a8173030f",
+    "review/source.json": "f3fd5eb1940ba734b561fbe736f65d5846f41b5bbd41212d5c95a86af285e24e",
+    "review.py": "26d40f0113040184c6c062423807e23469b8f9eed0c89ea54ed3503a175e13ce",
+    "review_prepare.py": "7e2a4ed2a8c71e0a4f41983ed3fbea77858169ef6300d3f71c4b191dce18f49b"
+  }
+}
