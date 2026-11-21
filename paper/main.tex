@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,booktabs,graphicx,hyperref}
+\hypersetup{hidelinks}
+\newcommand{\sba}{7(a)}
+\title{Forecasting five-year SBA loan charge-offs from incomplete vintages}
+\author{Yunjie Guo \and Hanqing Yang\thanks{Corresponding author, \texttt{hanqing.yang189@gmail.com}. Affiliation for both authors: Independent Researcher, Suzhou, China.}}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+\noindent\textbf{Keywords}\quad small business credit, vintage analysis, charge-offs, forecast evaluation, loss development
+
+\section{Introduction}
+A portfolio manager who has observed two years of a loan cohort can see how many loans have already charged off. Forecasting the five-year incidence requires three more years of experience. The last cohort with a complete five-year record is already three years older. For estimating what happens in the ninth quarter of a loan's life, however, the immediately preceding cohort has supplied an observation. Discarding that observation buys a complete historical trajectory at the price of a longer information lag. Using it instead requires an assumption about how well different cohorts can be combined.
+
+This trade-off matters for US Small Business Administration (SBA) portfolios. The Government Accountability Office documents a change in loan performance for borrowers entering the 2007--09 recession and describes the richer economic inputs available to the agency when estimating subsidy costs \cite{gao}. Breeden models the joint role of lifecycle and economic conditions in loan forecasts \cite{breeden}. Patel and Pearce use SBA records to study differences in default risk across borrowers \cite{patel}. Glennon and Nigro model the timing of defaults in SBA lending through survival analysis \cite{glennon}. Ahor evaluates early charge-off rankings across lending regimes and shows the importance of the denominator for unresolved portfolios \cite{ahor}. Our decision is made after disbursement and concerns the future charge-off count of a portfolio. A guarantee purchase, a borrower's first missed payment and a booked charge-off can occur at different times.
+
+Two established approaches suggest different uses of the available record. Period analysis borrows age-specific experience observed in a recent calendar window \cite{brenner}. Loss reserving chains successive development factors from incompletely observed portfolios \cite{mack}. Backtests using later insurance filings have shown how strongly predictive ranges can depend on the assumed development process \cite{meyers}. We apply these ideas to date-stamped public credit records, treating the quarter of a loan's first disbursement as its vintage. The comparison holds the initial portfolio, landmark, forecast horizon and window width fixed. It measures the cost of waiting for complete vintages separately from the choice of an additive or multiplicative forecast.
+
+The study makes two empirical comparisons. A rolling replay in a fixed release spans the approach to and recovery from the financial crisis. A second comparison uses data from the files actually dated September 2020 or December 2022 to construct forecasts, then scores them against a September 2025 edition. This distinguishes a change in the already reported history from error in the projected tail. Taken together, the comparisons address which reference window works in which setting and how far a backward-looking margin protected the portfolio during stress.
+
+\section{Sources, cohort and outcome}
+We use public SBA Freedom of Information Act records for the \sba{} and 504 programs \cite{sba}. The former provides loan guarantees and the latter finances long-term fixed assets through certified development companies. The archive includes loans still open at the release date. The three versioned mirrors preserve distinct agency as-of dates, checked in every record \cite{editions}. The 2020 edition covers both programs from fiscal year 1991. The 2022 mirror covers \sba{} approvals in fiscal years 1991--2019. The 2025 mirror includes \sba{} approvals in fiscal years 2010--19 and 504 approvals from fiscal year 2010 onward. We score each program separately.
+
+A record enters at its first dated disbursement, within 0--365 days of its dated approval. This rule fixes a maximum gap across the approval-year file boundary. We include loans regardless of later repayment status. The denominator is the number of eligible loan records. A dated charge-off counts if the date lies between disbursement and the snapshot. A status indicating charge-off without a usable event date is tracked as a potentially unlocated event. The additional fraction of such records gives a conservative upper sensitivity for the dated endpoint. A payoff removes the possibility of an ordinary later charge-off, but leaves the loan in the original denominator. Hence all increments below are unconditional event fractions of the funded cohort. Exposure weights, recoveries and realized dollar losses would define different targets.
+
+Write $v$ for the calendar quarter of entry, $j$ for age in quarters, $N_v$ for the cohort count and $x_{vj}$ for dated charge-offs at age $j$ divided by $N_v$. Age one is the disbursement quarter. Thus a 20-quarter outcome measures between approximately 4.75 and 5 years, depending on the disbursement day. Let $F_v(a)=\sum_{j=1}^a x_{vj}$. The primary forecast attaches to quarter end $t=v+a-1$, with $a=8$ and horizon $H=20$. At $t$, age $j$ is visible only for vintages through $t-j+1$. A single-release replay masks later event dates. It cannot recreate the reporting delays or corrections that affected the original historical files. The comparison across archived editions preserves the contents of each file. Its date denotes the snapshot reference date, with public availability following publication.
+
+\section{Forecast construction and evaluation}
+For a reference window of $W$ vintages define $A_j(k)=W^{-1}\sum_{i=0}^{W-1}x_{k-i,j}$. The mature-increment forecast adds $\sum_{j=a+1}^H A_j(v+a-H)$ to the observed prefix $F_v(a)$. The period forecast adds $\sum_{j=a+1}^H A_j(v+a-j)$. At each age the latter uses increments from the most recent $W$ calendar quarters visible at issue. Choosing $W=1$ in this formula gives the single-vintage frontier forecast. The primary width is eight. Each reference vintage receives equal weight in additive forecasts.
+
+\paragraph{An information-lag calculation.}
+At age $j$, the mean source vintage in the period estimate is younger by $H-j$ quarters than in the mature estimate. For an affine age-specific trajectory $x_{uj}=\alpha_j+\beta_j u$ over the relevant vintages, their difference in projected incidence before clipping is exactly
+\[
+ \widehat F_{\rm period}-\widehat F_{\rm mature}
+     = \sum_{j=a+1}^{H}(H-j)\beta_j .
+\]
+Indeed averaging an affine function gives its value at the window midpoint, and subtracting cancels the common half-window lag. If the underlying incidence sequence has adjacent differences bounded in magnitude by $b_j$, telescoping gives an absolute difference bounded by $\sum_j (H-j)b_j$. These are statements about the separation of forecasts under stated drift conditions. A reversal after issue can give either forecast the smaller realized error. For $a=8$, all twelve remaining ages contribute to the forecast, with an eleven-quarter freshness gain at age nine and zero gain at age twenty.
+
+\paragraph{Comparators.}
+Carry-forward sets the tail to zero. Historical rate takes the average complete incidence of the reference window. The mature development factor multiplies the observed prefix by total charge-offs through $H$ divided by total charge-offs through $a$ in the same complete reference vintages. The age-to-age chain separately computes this pooled count ratio between ages $j-1$ and $j$ using the most recent $W$ vintages observed through $j$, and multiplies the target prefix by the resulting sequence of factors. A denominator of zero leaves the multiplicative forecast undefined. All point estimates are restricted to the interval from the observed prefix to one. The development and chain benchmarks re-scale an early signal from the target portfolio, whereas the additive forecasts transfer later increments directly.
+
+\paragraph{Scoring.}
+We average errors equally across quarterly portfolios and report percentage points (pp). A positive signed forecast error denotes overprediction. We separately examine windows from age nine through twenty overlapping 2007Q4--2009Q2, using the NBER recession dates rounded to quarters \cite{nber}. This is a descriptive period comparison. Risk can also change with the composition of disbursements, servicing and recognition practice. A moving-block bootstrap resamples paired errors in contiguous segments with replacement, concatenating and truncating to the original length. We report the central 95\% range of 3,000 resampled mean differences for blocks of eight quarters and assess lengths four and twelve. Shared economic shocks limit the independent replication available from successive cohorts.
+
+\paragraph{Upper forecasts.}
+At each issue date, calculate earlier period forecasts using the same landmark and the information observable at each earlier origin. From the last twenty such cohorts whose $H$-quarter outcomes are now known, take the nineteenth smallest value of outcome minus forecast. Add its positive part to the current period estimate and cap at one. Nonexceedance is the fraction of outcomes at or below this upper forecast. Adjacent errors share calendar exposures and can shift together. This rule is a historical calibration diagnostic. A separate scenario scales the projected tail by one-half or two, preserving the observed prefix. It tests sensitivity to late charge-offs without assigning the scenarios probabilities.
+
+\input{findings}
+\input{discussion}
+
+\paragraph{Data and code.} The replication repository contains aggregate vintage-by-age counts, edition hashes, cohort filters, all scored forecasts, and the executable Python workflow. Each source archive is pinned in the \href{https://github.com/fightforbelief/p16-credit-stress}{replication repository}.
+\paragraph{Funding and competing interests.} The authors received no specific funding for this work and declare no competing interests.
+\input{references}
+\end{document}

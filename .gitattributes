@@ -1,0 +1,6 @@
+*.py text eol=lf
+*.md text eol=lf
+*.tex text eol=lf
+results/*.csv -text
+results/*.json -text
+*.pdf binary
