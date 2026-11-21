@@ -55,6 +55,8 @@ def make():
         external.append([yr,PROGRAMS[p],str(len(rs))]+[f"{v:.3f}" for v in vals])
     tex_file("external.tex",external)
 
+    import matplotlib
+    matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from matplotlib.ticker import MaxNLocator
     fig,axs=plt.subplots(2,1,figsize=(8,5),sharex=True,layout="constrained")

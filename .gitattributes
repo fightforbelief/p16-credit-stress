@@ -2,5 +2,7 @@
 *.md text eol=lf
 *.tex text eol=lf
 results/*.csv -text
-results/*.json -text
+results/*.json -text whitespace=trailing-space,cr-at-eol
+sensitivity/*.csv -text
+sensitivity/*.json -text whitespace=trailing-space,cr-at-eol
 *.pdf binary

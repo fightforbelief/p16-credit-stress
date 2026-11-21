@@ -6,6 +6,10 @@ Yunjie Guo and Hanqing Yang · Independent Researcher, Suzhou, China
 
 How much of a young portfolio's future charge-off incidence can be inferred from older loans? We reconstruct quarterly first-disbursement cohorts from three public SBA FOIA snapshots, compare seven forecast rules on the same vintages and check earlier editions against a later release. The target is the number of dated charge-offs through the twentieth calendar quarter per original eligible loan. Each program and vintage receives its own score. These forecasts describe funded portfolios and use no borrower names, risk scores or payoff dates.
 
+## Findings
+
+Across 68 disbursement quarters per program (957,406 eligible loans), allowing recent, partly seasoned vintages into additive forecasts reduced MAE from 6.44 to 5.16 percentage points in 7(a) and from 3.97 to 3.23 in 504. Using the same newer information in a multiplicative development rule increased MAE in both programs. In the 7(a) crisis-overlap vintages with a full calibration history, the period upper forecast covered 0 of 17 outcomes. A separately calibrated mature development factor covered 13 of 17. The historical period-window improvement did not repeat in the two later issue dates scored against the 2025 files.
+
 ## Reproduce the comparisons from the published counts
 
 From the project root, with Python 3.11 or later:
@@ -53,3 +57,7 @@ tectonic main.tex
 ```
 
 The checked-in tables and figure also allow the LaTeX manuscript to be built without Matplotlib. The paper discusses census scope, reporting revisions, overlapping quarters and the observed performance of the upper forecasts.
+
+## Sensitivity checks
+
+After the main comparison, we removed the 365-day entry limit in the 2020 archive and recalibrated a separate upper margin for each point forecast. From the same project environment, run `python sensitivity.py` after `run.py`. The [output](sensitivity/entry_and_margins.csv) reports the portfolio count, MAE, eligible upper forecasts, coverage count and mean margin for each rule. Its [checksums](sensitivity/checksums.json) identify the input, code, primary triangle and output.

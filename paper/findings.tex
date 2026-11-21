@@ -1,0 +1,65 @@
+\section{Quarterly vintage forecasts}
+The 2020 edition supplies 1,615,443 approved \sba{} records and 187,255 approved 504 records. The dated-entry rule retains 1,352,814 and 108,606, respectively, across the full archive. The \sba{} file has 208,215 records missing an entry or approval date and 54,414 outside the entry window. The corresponding 504 counts are 33,114 and 45,535. The main scored vintages run from 1999Q1 through 2015Q4. They contain 883,104 \sba{} and 74,302 504 records across 68 quarters per program. Earlier records train the initial forecasts. The five-year incidence ranges from 2.93\% to 30.23\% in \sba{} and from 0.34\% to 14.94\% in 504. Adding every undated flagged charge-off to the horizon would increase a scored portfolio's incidence by at most 0.011 pp in \sba{} and zero in 504.
+\begin{table}[htbp]
+\centering\small
+\caption{Error at the eight-quarter landmark, percentage points. The overlap column reports mean absolute error (MAE) for portfolios whose remaining observation window intersects 2007Q4--2009Q2. Maximum shortfall is the largest realized incidence minus forecast over all scored vintages.}
+\label{tab:accuracy}
+\begin{tabular}{lrrrrrr}
+\toprule
+ & \multicolumn{3}{c}{7(a)} & \multicolumn{3}{c}{504} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Method & MAE & Overlap & Max. shortfall & MAE & Overlap & Max. shortfall \\
+\midrule
+\tableinput accuracy.tex
+\bottomrule
+\end{tabular}
+\end{table}
+Using the latest available age-specific increments reduces mean absolute error by 1.28 pp in \sba{} and 0.75 pp in 504 (Table~\ref{tab:accuracy}). The period window beats the mature window in 40 and 44 of 68 quarterly comparisons, respectively. The eight-quarter block resampling ranges for period minus mature MAE are $[-3.99,1.09]$ and $[-1.81,0.08]$ pp. In \sba{} the range spans zero for all three block lengths. In 504 its upper endpoint is close to zero for blocks of four and twelve. The evidence supports a difference on these portfolios while leaving the expected gain in a new era uncertain.
+
+The freshness comparison goes the other way for multiplicative development. Allowing new vintages into the successive development factors raises average error by 0.28 pp in \sba{} and 2.24 pp in 504. One 504 chain forecast reaches the 100\% cap. For the 2007Q4 vintage it scales an early incidence of 2.05\% to the cap against a realized 13.00\%. Across leave-one-quarter-out summaries the 504 chain still increases MAE by 1.10 to 2.52 pp relative to the mature factor. Sparse early events can make the product unstable. In \sba{} the mature factor gives the lowest overall MAE, while the single-vintage additive forecast has the lowest MAE in 504. The latter benefits from newer data but also carries greater quarter-specific variation.
+
+The length of the information window matters independently of vintage eligibility. At four and twelve quarters, respectively, period MAE is 4.80 and 5.53 pp for \sba{} and 2.88 and 3.47 pp for 504. Mature increments are less accurate at both widths in both programs. Within short and long term groups, the eight-quarter period window also has lower MAE than mature increments. The reductions are 1.38 and 0.18 pp in \sba{}, and 0.11 and 0.77 pp in 504. Some short-term 504 portfolios lack a nonzero denominator for fitting multiplicative development. All additive forecasts are defined.
+\begin{figure}[htbp]
+\centering\includegraphics[width=.96\linewidth]{vintages.pdf}
+\caption{Dated charge-offs over the first twenty quarters, ordered by disbursement vintage. The shaded vintages have a post-landmark window that overlaps the financial crisis. Each line at a given vintage forecasts the same endpoint from an eight-quarter prefix, except the observed series which uses the mature outcome.}
+\label{fig:vintage}
+\end{figure}
+
+\subsection{How often did the upper forecasts hold?}
+\begin{table}[htbp]
+\centering\small
+\caption{Historical margins and multiplicative stress scenarios. Covered gives the count below or at the historical upper forecast. Margin and breach are the mean addition above the point forecast and the largest amount above the historical upper forecast, respectively, in pp. Double counts outcomes at or below a doubled tail. Inside counts those between a halved and a doubled tail.}
+\label{tab:upper}
+\begin{tabular}{llrrrrrr}
+\toprule
+Program & Window & $n$ & Covered & Margin & Breach & Double & Inside \\
+\midrule\tableinput upper.tex
+\bottomrule
+\end{tabular}
+\end{table}
+Eighteen vintages per program have a tail that overlaps the financial crisis. Seventeen have the twenty mature forecast errors required to issue the historical upper forecast. In \sba{}, none of these seventeen outcomes falls below or at the upper forecast. The mean addition to the point estimate is only 1.71 pp in that subset, compared with 10.85 pp outside it. Even a doubled forecast tail covers only six of the seventeen outcomes. The 504 upper forecast covers seven of seventeen. These are adjacent vintages exposed to one crisis, so the seventeen misses in \sba{} describe a sustained failure in time.
+
+The error changes direction as older stressed vintages enter the reference set (Figure~\ref{fig:vintage}). For \sba{} disbursements in 2009Q4, the period forecast is 25.42\% against an outcome of 5.90\%. This overprediction and the earlier underpredictions have different implications for a lender estimating future charge-off counts. A mean signed error near zero can coexist with large shortfalls on one side of the cycle. Table~\ref{tab:upper} reports both nonexceedance and the cost of carrying the margin.
+
+\section{Forecasts across actual releases}
+For an early edition $e$ and the 2025 edition $f$, write $\widehat R^{e}$ for the projected additional incidence. The reporting contribution and tail error can be measured separately:
+\[
+F_v^f(H)-\widehat F_v^e(H)
+ = \big[F_v^f(a)-F_v^e(a)\big] +
+   \big[F_v^f(H)-F_v^f(a)-\widehat R^e\big].
+\]
+Rates use the denominator in their respective editions. The first term captures net changes to eligible records and to dates that fall before the cutoff. Opposing revisions can cancel at the portfolio level. In a further check we rebuild the period forecast from the 2025 file, masking all events after the earlier origin. The difference from the archived forecast also captures revisions to the donor histories. The common target support is 2011Q1--2019Q3. Because disbursement occurs within one year of approval, the older disbursements excluded by the starting approval-year boundary cannot enter these targets.
+\begin{table}[htbp]
+\centering\small
+\caption{Earlier-edition forecasts scored in the 2025 release (pp). The first three error columns are MAE. Prefix is the largest absolute revision to the observed incidence at the landmark. Replay is the largest absolute change in the period forecast when reconstructed from the later file.}
+\label{tab:external}
+\begin{tabular}{llrrrrrr}
+\toprule
+As of & Program & Vintages & Mature & Period & Chain & Prefix & Replay \\
+\midrule\tableinput external.tex
+\bottomrule
+\end{tabular}
+\end{table}
+The 2020 comparison uses twelve vintages per program, 2016Q1--2018Q4, with ages eight through nineteen. The 2022 comparison uses six \sba{} vintages, 2018Q2--2019Q3, at ages fourteen through nineteen. These rows share an issue date within each edition and have different amounts of remaining development. Three \sba{} disbursement vintages recur across the two exercises. Only the 2020 issue contains the primary eight-quarter landmark.
+
+In all three program--release comparisons, mature increments have slightly smaller MAE than period increments (Table~\ref{tab:external}). The mean observed incidence across the twelve 2020 \sba{} portfolios is 4.33\%, against a mean period forecast of 4.43\%. On average, the published prefix subsequently falls by 0.222 pp while the realized post-landmark increment exceeds its forecast by 0.116 pp. The two terms partly offset. The total denominator for this \sba{} comparison also changes, from 161,863 to 162,046 records between the archived editions. Without linked records the aggregate revision cannot be allocated to specific loans. In the 2022 \sba{} portfolios the mean prefix revision is $-0.112$ pp and the mean tail error is $-0.256$ pp, so both terms contribute to overprediction. In these six vintages a replay from the 2025 edition would have reported a period MAE of 0.210 pp in place of 0.368 pp. For the 2020 \sba{} origin the same substitution changes MAE from 0.326 to 0.376 pp. Retrospective reconstruction can move measured accuracy in either direction.

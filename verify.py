@@ -23,6 +23,15 @@ def main():
             if hashlib.sha256((folder/name).read_bytes()).hexdigest()!=expected:
                 raise ValueError(f"SHA-256 mismatch in {name}")
 
+    supplement = ROOT/"sensitivity"
+    sup = json.loads((supplement/"checksums.json").read_text())
+    for p in (supplement/"entry_and_margins.csv", ROOT/"sensitivity.py", OUT/"triangles.csv"):
+        if hashlib.sha256(p.read_bytes()).hexdigest() != sup[p.name]:
+            raise ValueError(f"Sensitivity checksum mismatch in {p.name}")
+    sources = json.loads((OUT/"sources.json").read_text())
+    if sources["2020"]["manifest"]["extract_sha256"] != sup["2020.csv.gz"]:
+        raise ValueError("Sensitivity check used a different 2020 extract")
+
     tables={}
     for r in read("triangles.csv"):
         key=(r["edition"],r["program"],r["group"])

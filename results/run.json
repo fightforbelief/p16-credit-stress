@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-11-21T08:57:33.277462+00:00",
+  "completed_utc": "2026-11-21T08:57:44.333374+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "command": "python run.py",
+  "code_sha256": {
+    "analysis.py": "d343eccd252c5e3100c49b00a5286fc5bb0083a7fbe17067851d643e8941c4f3",
+    "build.py": "0db884fb87c42dace1537179dffbd1b71e1e8e54607c8d4d1d9b05e2fb2d415d",
+    "prepare.py": "b5efa89d03cfbec09f9e69b43f0734837add8da1900208ce9bc3c967fad5a654",
+    "run.py": "bf31674f0cf9eb2395e7c9fcb08535a52b0d37e96958fb15e85509ad78f38faa",
+    "test_analysis.py": "ad80cc0c045e7fba1a5e2de9f55b9131461305d0bcd4026382965e2334b704ef"
+  },
+  "output_sha256": {
+    "block_sensitivity.csv": "cc1a3b126c5014e0673c232a1b4b01e22132e048698d54a57066c403f0bc63d7",
+    "metrics.csv": "653bd112b405cf8013bb2d3b236b42fc33c01edbc0a0164395f33b55b187e31b",
+    "release_pairs.csv": "5069a7188bf24444f7f02a08a7c78abd32026e6de07e84e4993913394dca93d2",
+    "rolling.csv": "cfe250f84caf897ead65ecc83f07d5409cd2a6c18432449855c7d03a6fae5e3d",
+    "sources.json": "ffb14042bc018d29130b9dac03569abba6842eab424a2c8e069233701820ef6e",
+    "triangles.csv": "aab26b227bed412a2ae2dc206862895c6a1c47a01753eb8ac15d01ff41ec4b3b"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "2020": {
+    "manifest": {
+      "source": "thedevastator/sba-loan-guarantee-data-1990-1999",
+      "version": 1,
+      "archive_sha256": "bfa62a383612b4b1ecbfa2cfdb2ebb22fea2c9e4d1c494c07f314640e41386e9",
+      "members": [
+        {
+          "file": "FOIA%20-%20504%20(FY1991-Present).csv",
+          "rows": 187255
+        },
+        {
+          "file": "FOIA%20-%207(a)(FY1991-FY1999).csv",
+          "rows": 337043
+        },
+        {
+          "file": "FOIA%20-%207(a)(FY2000-FY2009).csv",
+          "rows": 690347
+        },
+        {
+          "file": "FOIA%20-%207(a)(FY2010-Present).csv",
+          "rows": 588053
+        }
+      ],
+      "extract_sha256": "0d9b96bcb32fa9d399723ac2d2b2421e1d106879ea9065cb319ba8d71845a3b9"
+    },
+    "programs": {
+      "504": {
+        "rows": 187255,
+        "included": 108606,
+        "flag_without_valid_date": 0,
+        "valid_date_without_flag": 0,
+        "invalid_nonempty_chargeoff_date": 0,
+        "missing_entry_date": 33114,
+        "outside_entry_window": 45535
+      },
+      "7a": {
+        "rows": 1615443,
+        "included": 1352814,
+        "flag_without_valid_date": 45,
+        "valid_date_without_flag": 0,
+        "invalid_nonempty_chargeoff_date": 3,
+        "missing_entry_date": 208215,
+        "outside_entry_window": 54414
+      }
+    }
+  },
+  "2022": {
+    "manifest": {
+      "source": "williecosta/sba-7a-loan-data",
+      "version": 1,
+      "archive_sha256": "088207523485e70749ef26711b7280630bf484949f3d7280b61c0111a579787f",
+      "members": [
+        {
+          "file": "foia-7afy1991-fy1999-asof-221231.csv",
+          "rows": 337043
+        },
+        {
+          "file": "foia-7afy2000-fy2009-asof-221231.csv",
+          "rows": 690347
+        },
+        {
+          "file": "foia-7afy2010-fy2019-asof-221231.csv",
+          "rows": 545751
+        }
+      ],
+      "extract_sha256": "13ef95121b93f1314a58d19205b4dcbd0ec1febfc59c079aebc8d3fe8c1af460"
+    },
+    "programs": {
+      "7a": {
+        "rows": 1573141,
+        "included": 1325807,
+        "flag_without_valid_date": 45,
+        "valid_date_without_flag": 0,
+        "invalid_nonempty_chargeoff_date": 3,
+        "missing_entry_date": 191135,
+        "outside_entry_window": 56199
+      }
+    }
+  },
+  "2025": {
+    "manifest": {
+      "source": "kuldeepmishra0496/sba-loan-data",
+      "version": 1,
+      "archive_sha256": "e0b252c48e570564748bd72891040c6ec5c67ebc157fd63cdacd854565862260",
+      "members": [
+        {
+          "file": "foia-504-fy2010-present-asof-250930.csv",
+          "rows": 113524
+        },
+        {
+          "file": "foia-7a-fy2010-fy2019-asof-250930.csv",
+          "rows": 545751
+        }
+      ],
+      "extract_sha256": "d8919b85547bbede2342d529857eb24ecf4e314bf93ef69dd6e45c60a38fadd5"
+    },
+    "programs": {
+      "504": {
+        "rows": 113524,
+        "outside_entry_window": 26001,
+        "included": 65172,
+        "flag_without_valid_date": 0,
+        "valid_date_without_flag": 0,
+        "invalid_nonempty_chargeoff_date": 0,
+        "missing_entry_date": 22351
+      },
+      "7a": {
+        "rows": 545751,
+        "included": 463454,
+        "flag_without_valid_date": 9,
+        "valid_date_without_flag": 0,
+        "invalid_nonempty_chargeoff_date": 0,
+        "outside_entry_window": 15313,
+        "missing_entry_date": 66984
+      }
+    }
+  }
+}
