@@ -15,7 +15,7 @@ class VintageTests(unittest.TestCase):
 
     def test_flat_history_and_calibration(self):
         p=forecast(self.flat,50,8,8)
-        for m in ("development","mature","period","frontier","historical"):
+        for m in ("development","chain","mature","period","frontier","historical"):
             self.assertAlmostEqual(p[m],.06)
         self.assertAlmostEqual(margin(self.flat,60,8,8),0)
 

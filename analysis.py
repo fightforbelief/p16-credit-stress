@@ -9,7 +9,7 @@ from statistics import mean
 from build import RESULTS, SNAPSHOTS, label, quarter, write
 
 H = 20
-METHODS = ("carry", "historical", "development", "mature", "period", "frontier")
+METHODS = ("carry", "historical", "development", "chain", "mature", "period", "frontier")
 
 @dataclass(frozen=True)
 class Cell:
@@ -40,15 +40,23 @@ def forecast(table, v, age, width):
     factor = (sum(sum(c.events) for c in mature)/mature_early if mature_early else None)
     tails = []
     newest = []
+    chain = prefix
     for j in range(age+1,H+1):
         last = t-j+1
         rates = [table[q].events[j-1]/table[q].n for q in range(last-width+1,last+1)]
+        counts = [table[q].events for q in range(last-width+1,last+1)]
+        prior = sum(sum(row[:j-1]) for row in counts)
+        if chain is not None and prior:
+            chain *= 1 + sum(row[j-1] for row in counts)/prior
+        else:
+            chain = None
         tails.append(mean(rates))
         newest.append(rates[-1])
     def clip(x):
         return max(prefix,min(1.,x))
     return dict(carry=prefix,historical=clip(old_rate),
                 development=clip(prefix*factor) if factor is not None else None,
+                chain=clip(chain) if chain is not None else None,
                 mature=clip(prefix+old_tail),period=clip(prefix+sum(tails)),
                 frontier=clip(prefix+sum(newest)))
 
