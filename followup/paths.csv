@@ -1,0 +1,15 @@
+endpoint_tier,sep_link,dec_link,2020Q3_date,2020Q3_status,2020Q3_amount,2022Q3_date,2022Q3_status,2022Q3_amount,2022Q4_date,2022Q4_status,2022Q4_amount,2025Q3_date,2025Q3_status,2025Q3_amount,amount_change_1,amount_change_2,amount_change_3,loans
+address_and_disbursement,both,both,original,CHGOFF,positive,blank,PIF,zero,blank,PIF,zero,blank,PIF,zero,decreased,same,same,47
+address_and_disbursement,both,both,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,blank,PIF,zero,same,decreased,same,10
+address_and_disbursement,both,both,original,CHGOFF,positive,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,same,same,decreased,45
+literal,both,both,original,CHGOFF,positive,blank,PIF,zero,blank,PIF,zero,blank,PIF,zero,decreased,same,same,145
+literal,both,both,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,blank,EXEMPT,zero,same,decreased,same,2
+literal,both,both,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,blank,PIF,zero,same,decreased,same,25
+literal,both,both,original,CHGOFF,positive,original,CHGOFF,positive,original,CHGOFF,positive,blank,EXEMPT,zero,same,same,decreased,1
+literal,both,both,original,CHGOFF,positive,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,same,same,decreased,172
+normalized_name,both,both,original,CHGOFF,positive,blank,PIF,zero,blank,PIF,zero,blank,PIF,zero,decreased,same,same,68
+normalized_name,both,both,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,blank,EXEMPT,zero,same,decreased,same,1
+normalized_name,both,both,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,blank,PIF,zero,same,decreased,same,11
+normalized_name,both,both,original,CHGOFF,positive,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,decreased,same,decreased,2
+normalized_name,both,both,original,CHGOFF,positive,original,CHGOFF,positive,original,CHGOFF,positive,blank,PIF,zero,same,same,decreased,72
+normalized_name,both,both,original,CHGOFF,positive,redated,CHGOFF,positive,redated,CHGOFF,positive,blank,PIF,zero,decreased,same,decreased,1

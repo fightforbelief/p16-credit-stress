@@ -1,0 +1,7 @@
+first_observed_blank,status,payoff_date_vs_original,first_blank_payoff,final_status,final_payoff,loans
+2022Q3,PIF,after_2020Q3,by_snapshot,PIF,by_snapshot,252
+2022Q3,PIF,after_chargeoff_by_2020Q3,by_snapshot,PIF,by_snapshot,8
+2022Q4,PIF,after_2020Q3,by_snapshot,EXEMPT,absent,3
+2022Q4,PIF,after_2020Q3,by_snapshot,PIF,by_snapshot,46
+2025Q3,EXEMPT,missing,absent,EXEMPT,absent,1
+2025Q3,PIF,after_2020Q3,by_snapshot,PIF,by_snapshot,292

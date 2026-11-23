@@ -10,3 +10,5 @@ review/*.csv -text
 review/*.json -text
 revision/*.csv -text
 revision/*.json -text
+followup/*.csv -text
+followup/*.json -text

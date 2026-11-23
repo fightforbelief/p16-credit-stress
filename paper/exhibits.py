@@ -95,6 +95,27 @@ def make():
     axs[0].legend(ncol=4,fontsize=8,frameon=False,loc="upper right")
     fig.savefig(PAPER/"vintages.pdf",metadata={"CreationDate":None,"ModDate":None})
 
+def followup_table():
+    folder = PAPER.parent/"followup"
+    with (folder/"paths.csv").open(newline="") as f:
+        paths = list(csv.DictReader(f))
+    with (folder/"amount_totals.csv").open(newline="") as f:
+        totals = list(csv.DictReader(f))
+    with (folder/"first_blank.csv").open(newline="") as f:
+        changes = list(csv.DictReader(f))
+    lines = []
+    for row in totals:
+        edition = row["edition"]
+        first = sum(int(r["loans"]) for r in changes if r["first_observed_blank"] == edition)
+        statuses = [sum(int(r["loans"]) for r in paths if r[edition+"_status"] == code)
+                    for code in ("CHGOFF","PIF","EXEMPT")]
+        assert sum(statuses) == int(row["matched"])
+        cents = int(row["gross_chargeoff_cents"])
+        assert cents % 100 == 0
+        lines.append([edition, str(first), *map(str,statuses), f"{cents//100:,}"])
+    tex_file("followup_counts.tex",lines)
+
+
 def revision_figure():
     import matplotlib.pyplot as plt
 
@@ -125,3 +146,4 @@ def revision_figure():
 if __name__=="__main__":
     make()
     revision_figure()
+    followup_table()

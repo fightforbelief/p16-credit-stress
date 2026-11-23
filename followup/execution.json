@@ -1,0 +1,24 @@
+{
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_sha256": {
+    "2020Q3": "bfa62a383612b4b1ecbfa2cfdb2ebb22fea2c9e4d1c494c07f314640e41386e9",
+    "2022Q3": "c41701ee7f3a4b583cf065579d70bcafae4f736502b99e7078ea080a92fc7429",
+    "2022Q4": "088207523485e70749ef26711b7280630bf484949f3d7280b61c0111a579787f",
+    "2025Q3": "e0b252c48e570564748bd72891040c6ec5c67ebc157fd63cdacd854565862260"
+  },
+  "projection_sha256": "f8990174ed9847f0997d819e557ab9fc0c466286263044771f05580bbbdd4045",
+  "sha256": {
+    "followup/amount_totals.csv": "ccbbf28c563c2e7783623a1e81d3c50bd8a1a0b062052d05dca2e644d82237b0",
+    "followup/first_blank.csv": "34f6adee9634ae4e98bff3a28631756f62a9bf63d724eff18345ca65e52ad51a",
+    "followup/paths.csv": "ca30fd1f2339c230b5521350ed3c5d6e354b406fc8671dd2b156d4ac29353181",
+    "followup/payoff.csv": "c74b2fb428fc98437f929382b5d456ee718cf7d428af8c1a866f125bd6aa7744",
+    "results/sources.json": "ffb14042bc018d29130b9dac03569abba6842eab424a2c8e069233701820ef6e",
+    "review/source.json": "f3fd5eb1940ba734b561fbe736f65d5846f41b5bbd41212d5c95a86af285e24e",
+    "revision/projection.json": "4e7aaf4a99d61bd885a9ee8069552e1a8ab1d26060058af0f07f53aa97dcf6a7",
+    "revision_records.py": "ab63b7f18d88f0f28ceb4d1efc57d40f398f299ad637fdf0dffc67234a7af97a",
+    "trace_history.py": "f9a613a2791e555cc2f255a8cebec16f76a3395c2c2c61c359fe12edf54e6e2b",
+    "trace_prepare.py": "eb515e45ec05a7c4cf9860cc89837a4c79ba70bcaafa794c1e9f77b7e1b8602e",
+    "trace_select.py": "58545964135d07b047e87bd498cce8dcc552192df2ba979411246e6c0fa2e195"
+  }
+}

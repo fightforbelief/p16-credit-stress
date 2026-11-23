@@ -134,6 +134,56 @@ def read_review_pairs():
         return list(csv.DictReader(f))
 
 
+def audit_followup():
+    from collections import Counter
+
+    folder = ROOT/"followup"
+    meta = json.loads((folder/"execution.json").read_text())
+    for path, expected in meta["sha256"].items():
+        assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == expected, path
+    editions = ("2020Q3","2022Q3","2022Q4","2025Q3")
+    sources = json.loads((OUT/"sources.json").read_text())
+    september = json.loads((ROOT/"review/source.json").read_text())["sources"]["7a"]
+    assert meta["source_sha256"] == {e:september["sha256"] if e=="2022Q3" else
+            sources[e[:4]]["manifest"]["archive_sha256"] for e in editions}
+    def rows(name):
+        with (folder/name).open(newline="") as f:
+            return list(csv.DictReader(f))
+    transitions, first_status = Counter(), Counter()
+    matched, reported = Counter(), Counter()
+    total = literal = 0
+    for r in rows("paths.csv"):
+        n = int(r["loans"])
+        total += n
+        literal += n * (r["endpoint_tier"] == "literal")
+        assert r["2020Q3_date"]=="original" and r["2025Q3_date"]=="blank"
+        idx = next(i for i,e in enumerate(editions) if r[e+"_date"]=="blank")
+        prev = max(i for i in range(idx) if r[editions[i]+"_date"]!="unlinked")
+        a,b = editions[prev],editions[idx]
+        first_status[b,r[b+"_status"]] += n
+        if idx == prev+1:
+            transitions[a,b,r[a+"_status"],r[b+"_status"],r[a+"_amount"],r[b+"_amount"],r["amount_change_"+str(idx)]] += n
+        for e in editions:
+            matched[e] += n*(r[e+"_date"]!="unlinked")
+            reported[e] += n*(r[e+"_amount"] not in {"missing","unlinked"})
+    assert total==602 and literal==345
+    official = Counter()
+    for r in rows("first_blank.csv"):
+        a,b = r["prior_observed"],r["first_observed_blank"]
+        if editions.index(b)-editions.index(a)==1:
+            k = (a,b,r["status_from"],r["status_to"],r["amount_from"],r["amount_to"],r["amount_change"])
+            official[k] += int(r["loans"])
+    assert transitions == official and sum(int(r["loans"]) for r in rows("first_blank.csv")) == total
+    payoff = Counter()
+    for r in rows("payoff.csv"):
+        payoff[r["first_observed_blank"],r["status"]] += int(r["loans"])
+    assert payoff == first_status
+    for r in rows("amount_totals.csv"):
+        e = r["edition"]
+        assert (matched[e],reported[e]) == (int(r["matched"]),int(r["reported_amount"]))
+    print("Verified four source fingerprints and four-edition histories for the frozen 602 loans.")
+
+
 def main():
     manifest=json.loads((OUT/"run.json").read_text())
     for folder,section in [(ROOT,"code_sha256"),(OUT,"output_sha256")]:
@@ -182,6 +232,7 @@ def main():
         same(float(r["truth"])-float(r["period"]),float(r["prefix_revision"])+float(r["tail_error"]))
     audit_extension(tables)
     audit_revision(tables)
+    audit_followup()
     print(f"Verified manifest and {len(rolling)} rolling / {len(pairs)} archive-paired rows.")
 
 if __name__=="__main__":

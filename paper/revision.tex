@@ -5,7 +5,26 @@ The public releases share no agency loan identifier. Our first pass links record
 
 Because the literal key links only 39.4\% of the eligible 2020 records, we added a second pass after inspecting that residual. It accepts a unique normalized-name match or agreement of two unique keys using the borrower's street and the disbursement date, respectively. The street and disbursement keys also require the same bank. All alternatives require the same approval date, amount and normalized ZIP, and conflicting candidates remain unlinked. This links 229,848 of 261,820 eligible 2020 records (87.8\%). Among linked records, 602 visible dates become blank, including 400 originally dated in 2018--19. Six blank dates become visible and seven visible dates move past the cutoff. The visible-to-blank changes account for $+0.325$ pp of the total. Making only these changes gives a gap of $+0.148$ pp, while making all other changes gives $-0.101$ pp. Unlinked records contribute $+0.063$ pp. All remaining field changes together contribute $+0.012$ pp. The supplement gives both linkage specifications, event quarters and the full ledger.
 
-Both ledgers recover the change in each eligible count and every observable quarterly charge-off cell used in the forecasts. A date that becomes blank removes an event from the recorded endpoint. These files do not establish why the date changed, whether the borrower recovered or whether the agency reversed a loss.
+Both ledgers recover the change in each eligible count and every observable charge-off cell used in the forecasts.
+
+\paragraph{When did the dates disappear?}
+We freeze the same 602 endpoint pairs and link each endpoint separately to the September and December 2022 files. Matching includes every candidate sharing a relevant approval date and gross approval amount. All four linkage keys require both fields. For each of the 602 loans, the two endpoints identify the same unique intermediate row in each file. Charge-off date, status, gross charge-off amount and payoff date play no role in this linkage. Table~\ref{tab:followup} follows this fixed group across the four snapshots.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Four snapshots of the 602 September 2020 dated charge-offs whose dates are blank by September 2025. First blank counts loans newly observed with an empty date. Status counts and gross charge-off dollars cover the entire fixed group at each snapshot.}
+\label{tab:followup}
+\begin{tabular}{lrrrrr}
+\toprule
+As of & First blank & Charged off & Paid in full & Exempt & Gross charge-off (\$) \\
+\midrule\tableinput followup_counts.tex
+\bottomrule
+\end{tabular}
+\end{table}
+
+The date is first observed blank in September 2022 for 260 loans, in December 2022 for another 49, and in September 2025 for the remaining 293. No cleared date reappears in the observed files. In every case the preceding snapshot records a positive gross charge-off amount and a charged-off status. At the first blank, all 602 amounts are recorded zeros. The new status is paid in full for 601 loans and exempt for one. Three of the 49 classified as paid in full in December 2022 subsequently move to exempt and lose their recorded payoff dates. Their charge-off dates stay blank and their amounts stay zero. One loan retains a revised, nonblank charge-off date in both 2022 archives before the date clears. Three loans already show a smaller positive amount in September 2022 before the amount reaches zero in 2025.
+
+The archived SBA dictionary defines the 7(a) gross charge-off amount as the charged-off balance including both guaranteed and unguaranteed portions \cite{editions}. The paid-in-full field supplies a dated cross-check. All 601 newly classified as paid in full have a recorded payoff date by the date of that snapshot. In 593 cases the payoff date falls after September 30, 2020. In eight it falls after the original charge-off date but on or before September 30, 2020, when the archive still reported a charge-off. The remaining loan enters the exempt disclosure category with no payoff date. Under the SBA dictionary this category withholds the specific status of disbursed loans outside the paid-in-full, cancelled and charged-off categories. The public classification therefore explains how these loans leave the dated forecast endpoint. The snapshots bracket the first observed change. They contain neither a servicing adjustment code nor a payment ledger establishing whether an earlier classification was corrected, who paid, how much was recovered, or when SBA changed its books. The dollar totals describe a group selected for the disappearance of its charge-off dates.
 
 \paragraph{Does the reversal depend on one or two vintages?}
 Deleting each target in turn preserves the sign reversal in all twelve comparisons. It also survives all 66 two-target omissions. Across those omissions, archived gaps range from $-0.281$ to $-0.057$ pp and replay gaps from $+0.080$ to $+0.291$ pp. The two largest individual shifts, for 2017Q3 and 2017Q4, account for 42\% of the total. Figure~\ref{fig:revision} shows that four of the twelve target-specific gaps switch strictly from negative to positive, all in 2017. The portfolio-average reversal survives removing the influential quarters even though it is unevenly distributed.

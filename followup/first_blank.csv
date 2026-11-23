@@ -1,0 +1,5 @@
+prior_observed,first_observed_blank,status_from,status_to,amount_from,amount_to,amount_change,loans
+2020Q3,2022Q3,CHGOFF,PIF,positive,zero,decreased,260
+2022Q3,2022Q4,CHGOFF,PIF,positive,zero,decreased,49
+2022Q4,2025Q3,CHGOFF,EXEMPT,positive,zero,decreased,1
+2022Q4,2025Q3,CHGOFF,PIF,positive,zero,decreased,292
